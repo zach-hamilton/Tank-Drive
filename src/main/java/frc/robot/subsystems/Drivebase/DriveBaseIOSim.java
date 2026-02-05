@@ -27,8 +27,8 @@ public class DriveBaseIOSim implements DrivebaseIO {
 
   public DriveBaseIOSim() {
 
-    LinearSystem<N2, N2, N2> plant = LinearSystemId.createDrivetrainVelocitySystem(driveGear, 20, Units.inchesToMeters(3), 
-    Units.inchesToMeters(7.6), 1.72, 3.87);
+    LinearSystem<N2, N2, N2> plant = LinearSystemId.createDrivetrainVelocitySystem(DCMotor.getFalcon500(2), 20, Units.inchesToMeters(3), 
+    Units.inchesToMeters(7.5625), 1.72, 3.87);
     Matrix<N7, N1> stdevs = VecBuilder.fill(0.001, 0.001, 0.001, 0.1, 0.1, 0.005, 0.005);
     drivetrainSim = new DifferentialDrivetrainSim(plant, driveGear, 3.87, Units.inchesToMeters(3),
       Units.inchesToMeters(15.125), stdevs);
